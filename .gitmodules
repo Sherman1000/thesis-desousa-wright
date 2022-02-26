@@ -1,6 +1,7 @@
 [submodule "frontend"]
 	path = frontend
-	url = https://github.com/thesis-desousa-wright/frontend.git
+	url = git@github.com:thesis-desousa-wright/frontend.git
 [submodule "backend"]
 	path = backend
-	url = https://github.com/thesis-desousa-wright/backend.git
+    url = git@github.com:thesis-desousa-wright/backend.git
+
