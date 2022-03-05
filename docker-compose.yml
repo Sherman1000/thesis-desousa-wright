@@ -8,11 +8,21 @@ services:
       dockerfile: ./docker/nginx/Dockerfile
     ports:
       - 80:80
+      - 433:433
     volumes:
       - static_volume:/app/backend/django_static
-      - ./docker/nginx/development:/etc/nginx/conf.d
+      - ./docker/nginx/production:/etc/nginx/conf.d
+      - ./docker/nginx/certbot/conf:/etc/letsencrypt
+      - ./docker/nginx/certbot/www:/var/www/certbot
     depends_on:
       - backend
+  certbot:
+    image: certbot/certbot
+    restart: unless-stopped
+    volumes:
+      - ./docker/nginx/certbot/conf:/etc/letsencrypt
+      - ./docker/nginx/certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
   backend:
     restart: unless-stopped
     build:
