@@ -21,6 +21,7 @@ services:
     entrypoint: /app/docker/backend/wsgi-entrypoint.sh
     volumes:
       - static_volume:/app/backend/django_static
+      - media_volume:/app/backend/media
     expose:
       - 8000
     depends_on:
@@ -39,4 +40,5 @@ services:
 
 volumes:
   static_volume: {}
+  media_volume: {}
   postgres_data:
