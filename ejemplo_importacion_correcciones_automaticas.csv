@@ -1,0 +1,21 @@
+"id_archivo","id_persona","instruccion_ejecutada","codigo_evaluado","porcentaje_correcto","recomendaciones","errores"
+1,1,"ord_burbujeo(lista)","“def ord_burbujeo(lista): CRLF
+         'Ordena una lista por el método de burbujeo' CRLF    
+          def ordenar(lista, hasta): CRLF                 
+               if hasta == 0:  CRLF           
+                   return lista CRLF        
+               for i in range (hasta):  CRLF           
+                   if lista [i] > lista [i+1]:   CRLF              
+                      lista[i], lista[i+1] = lista[i+1], lista[i]  CRLF       
+                      return ordenar (lista, hasta-1)  CRLF        
+               Return ordenar(lista , len(lista)-1)”",85,"[‘Falla en la lista vacía’]","[RecursionError('maximum recursion depth exceeded in comparison')]"
+2,2,"ord_burbujeo(lista)","def ord_burbujeo(lista):
+         'Ordena una lista por el método de burbujeo'     
+          def ordenar(lista, hasta):                  
+               if hasta == 0:             
+                   return lista         
+               for i in range (hasta):             
+                   if lista [i] > lista [i+1]:                 
+                      lista[i], lista[i+1] = lista[i+1], lista[i]         
+                      return ordenar (lista, hasta-1)          
+               Return ordenar(lista , len(lista)-1)",85,"[‘Falla en la lista vacía’]","[RecursionError('maximum recursion depth exceeded in comparison')]"
